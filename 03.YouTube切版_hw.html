@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .h-100 {
+            height: 100%;
+        }
+        
+        hr {
+            margin: 20px;
+        }
+        
+        #head {
+            width: 80%;
+            height: 120px;
+            border-bottom: 1px solid rgb(175, 167, 167);
+            background-color: rgba(255, 255, 255, 0.8);
+            position: fixed;
+            right: 0;
+            z-index: 999;
+        }
+        
+        #head .search {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -0%);
+            width: calc(100%-100px);
+            height: 30px;
+        }
+        
+        #head .search .search-icon-container {
+            position: absolute;
+            top: 0;
+            right: -50px;
+            margin-left: 10px;
+            background-color: rgb(236, 233, 233);
+            width: 50px;
+            height: 33px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        
+        #head .search .search-icon-container>i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        #head .search .microphone-icon-container {
+            position: absolute;
+            top: 0;
+            right: -100px;
+            margin-left: 10px;
+            width: 50px;
+            height: 34px;
+            text-align: center;
+        }
+        
+        #head .search .microphone-icon-container>i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        #head .head-login-bottom {
+            position: absolute;
+            top: 10%;
+            right: 0;
+            width: 20%;
+            height: 50px;
+        }
+        
+        #head .head-login-bottom .head-login-list {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+        }
+        
+        #head .head-login-bottom .head-login-ellipse {
+            position: absolute;
+            top: 30%;
+            right: 40%;
+        }
+        
+        #head .head-login-bottom-1 {
+            position: absolute;
+            top: 20%;
+            right: 0;
+            color: blue;
+            width: 80px;
+            height: 40px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 10px;
+        }
+        
+        #recommand {
+            position: relative;
+            height: 50px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-30%, 10%);
+            margin-top: 5px;
+        }
+        
+        #recommand .recommand-content {
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        #recommand .recommand-content span {
+            background-color: rgb(199, 193, 193);
+            color: rgb(0, 0, 0);
+            text-align: center;
+            border-radius: 20px;
+            font-size: 1rem;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+        
+        #side {
+            width: 20%;
+            background-color: rgb(236, 234, 234);
+            color: black;
+            text-align: left;
+            float: left;
+            overflow: auto;
+            position: fixed;
+        }
+        
+        #side .side-logo img {
+            width: 40%;
+            margin: auto;
+            position: relative;
+            top: 0;
+            left: 20%;
+        }
+        
+        #side .side-logo>i {
+            float: left;
+            position: absolute;
+            top: 3%;
+            left: 12%;
+        }
+        
+        #side p,
+        h3 {
+            font-size: 1rem;
+            margin-left: 40px;
+        }
+        
+        #side p>i {
+            margin-right: 10px;
+            background-color: rgb(136, 129, 129);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        .side-login-bottom {
+            color: blue;
+            width: 100px;
+            height: 40px;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 40px;
+        }
+        
+        .content {
+            width: 80%;
+            height: 100%;
+            position: relative;
+            float: right;
+            top: 10%;
+        }
+        
+        #ad {
+            height: 300px;
+            background-color: black;
+            position: relative;
+            margin-top: 50px;
+        }
+        
+        #ad img {
+            width: 300px;
+            height: 40px;
+            position: absolute;
+            top: 20%;
+            left: 5%;
+        }
+        
+        #ad p:nth-child(2) {
+            color: white;
+            font-size: 30px;
+            position: absolute;
+            top: 40%;
+            left: 5%;
+        }
+        
+        #ad p:nth-child(3) {
+            color: white;
+            border: 1px solid white;
+            padding: 10px;
+            font-size: 20px;
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+        }
+        
+        #ad p:nth-child(4) {
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            color: black;
+            background-color: grey;
+            padding: 2px;
+            font-size: 1rem;
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            transform: translateX(50px);
+        }
+        
+        #video {
+            display: inline-block;
+            width: 100%;
+            margin-top: 50px;
+            font-size: 0;
+        }
+        
+        #video .row {
+            margin-bottom: 30px;
+        }
+        
+        #video .row .cols {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 25%;
+            height: 300px;
+            padding: 5px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .card img {
+            width: 100%;
+        }
+        
+        .card .smallimg {
+            float: left;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            margin-bottom: 60px;
+            margin-right: 10px;
+        }
+        
+        .card .box .text {
+            font-size: 16px;
+        }
+        
+        .text p:nth-child(2) {
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="head">
+        <div id="searchbar">
+            <div class="search">
+                <div class="search-container">
+                    <input type="text" placeholder="搜尋" style="width: 500px ; height: 30px;">
+                </div>
+                <div class="search-icon-container">
+                    <i class="fas fa-search fa-1x"></i>
+                </div>
+                <div class="microphone-icon-container">
+                    <i class="fas fa-microphone fa-1x"></i>
+                </div>
+            </div>
+            <div class="head-login-bottom">
+                <div class="head-login-list">
+                    <i class="fas fa-th-list fa-2x"></i>
+                </div>
+                <div class="head-login-ellipse">
+                    <i class="fas fa-ellipsis-v fa-2x"></i>
+                </div>
+                <div class="head-login-bottom-1">
+                    <p>登入</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="recommand">
+            <div class="recommand-content">
+                <span>全部</span>
+                <span>直播中</span>
+                <span>音樂</span>
+                <span>卡通</span>
+                <span>烹飪節目</span>
+                <span>寵物</span>
+                <span>動作冒險遊戲</span>
+                <span>最新上傳</span>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="side" class="h-100">
+        <div class="side-logo">
+            <i class="fas fa-bars"></i>
+            <img src="./img/ytlogo_logo.png">
+        </div>
+        <p><i class="fas fa-home"></i>首頁</p>
+        <p><i class="fab fa-wpexplorer"></i>探索</p>
+        <p><i class="fas fa-bell"></i>訂閱內容</p>
+        <hr>
+        <p><i class="fas fa-hashtag"></i>媒體庫</p>
+        <p> <i class="fas fa-history"></i>觀看紀錄</p>
+        <hr>
+        <p>登入帳戶即可對影片表示喜歡、發布留言及訂閱頻道。</p>
+        <p class="side-login-bottom"> 登入</p>
+        <hr>
+        <h3>YOUTUBE精選</h3>
+        <p><i class="fas fa-music"></i>音樂</p>
+        <p><i class="fas fa-volleyball-ball"></i>體育</p>
+        <p><i class="fas fa-gamepad"></i>遊戲</p>
+        <p><i class="fas fa-video"></i>電影</p>
+        <p><i class="fas fa-newspaper"></i>新聞</p>
+        <p><i class="fas fa-headset"></i>直播</p>
+        <p><i class="fas fa-video"></i>360度影片</p>
+        <hr>
+        <p><i class="fas fa-film"></i>瀏覽頻道</p>
+        <hr>
+        <h3>更多YOUTUBE功能</h3>
+        <p> <i class="fab fa-youtube"></i>YouTube Premium</p>
+        <p> <i class="fas fa-headset"></i>直播</p>
+        <hr>
+        <p> <i class="fas fa-cog"></i>設定</p>
+        <p> <i class="fas fa-bug"></i>檢舉紀錄</p>
+        <p> <i class="fas fa-info"></i>說明</p>
+        <p> <i class="fas fa-inbox"></i>提供意見</p>
+
+    </div>
+
+
+    <div class="content h-100">
+
+        <div id="ad">
+            <img src="./img/yotubelogo.png">
+            <p>Music Premium 提供零廣告的音樂體驗</p>
+            <p>立即訂閱</p>
+            <p>╳</p>
+        </div>
+        <div id="video" class="h-100">
+            <div class="row">
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/1.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=1">
+                            <div class="text">
+                                <p>Take Care with Peanuts:Happy Harvesting</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/2.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=2">
+                            <div class="text">
+                                <p>Take Care with Peanuts:Happy Harvesting</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/3.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=3">
+                            <div class="text">
+                                <p>Take Care with Peanuts:Happy Harvesting</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/4.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=4">
+                            <div class="text">
+                                <p>Take Care with Peanuts:Happy Harvesting</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/5.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=5">
+                            <div class="text">
+                                <p>Take Care with Peanuts: Join the Gang</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/6.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=6">
+                            <div class="text">
+                                <p>Take Care with Peanuts: Choose to Reuse</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/7.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=7">
+                            <div class="text">
+                                <p>Take Care with Peanuts: Choose to Reuse</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/1.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=8">
+                            <div class="text">
+                                <p>Take Care with Peanuts: Choose to Reuse</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+
+                <h1>發燒影片</h1>
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/2.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=9">
+                            <div class="text">
+                                <p>Take Care with Peanuts: Choose to Reuse</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/3.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=10">
+                            <div class="text">
+                                <p>Take Care with Peanuts: Join the Gang</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/4.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=11">
+                            <div class="text">
+                                <p>Take Care with Peanuts:Choose to Reuse</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cols">
+                    <div class="card">
+                        <img src="./img/youtube封面/5.jpg">
+                        <div class="box">
+                            <img class="smallimg" src="https://picsum.photos/40/40/?random=12">
+                            <div class="text">
+                                <p>Take Care with Peanuts: Join the Gang</p>
+                                <p>Snoopy <br> 觀看次數：14萬次 · 3天前</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
